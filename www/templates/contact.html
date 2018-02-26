@@ -1,0 +1,28 @@
+<ion-view class="" title="Contacts">
+  <ion-header-bar class="" style="text-align: center; background-color: #00b19d;">
+    <div class="" style="display: flex;">
+      <img width="10%" src="images/alegra-icon.png"></img>
+      <p style="color: white;margin-top: 2%;text-transform: uppercase;font-weight: bold;">List Contact</p>
+    </div>
+    <div class="">
+      <a class="button button-icon icon ion-plus" style="color: white;" ng-click="create()"></a>
+    </div>
+  </ion-header-bar>
+  <ion-content style=" margin-top: 10px;">
+    <ion-list style="text-align: center;">
+      <ion-item ng-repeat="contact in contacts" style="display: flex;" ng-click="detail(contact)">
+        <div class="">
+          <img src="images/editPhoto@3x.png" width="30%" alt="">
+        </div>
+        <div class="">
+          <p>Name: {{contact.name}}</p>
+          <p>Email: {{contact.email}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      distance="2%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

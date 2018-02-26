@@ -1,0 +1,22 @@
+<ion-modal-view>
+  <ion-header-bar class="header-neeru">
+    <p style="margin: auto;">Resumen Transaccion</p>
+  </ion-header-bar>
+  <ion-content style="padding: 10px;">
+    <ion-list>
+      <ion-item class="transaction-confirm-item list-pos">
+        <p class="movement-item-title">Monto</p>
+        <p class="movement-item-value1">USD. {{confirmTransaction.monto/100 | number : 2}}</p>
+      </ion-item>
+      <ion-item class="transaction-confirm-item">
+        <p class="movement-item-title">numero tarjeta</p>
+        <p class="movement-item-value1">**** **** **** {{confirmTransaction.last_four_digits}}</p>
+      </ion-item class="transaction-confirm-item">
+      <ion-item class="transaction-confirm-item">
+        <p class="movement-item-title">Descripción</p>
+        <p class="movement-item-value1" style="text-transform: capitalize;">{{confirmTransaction.description}}</p>
+      </ion-item>
+    </ion-list>
+    <a class="button  button-block button-green" ng-click="pagar()"><p>Continuar </p></a>
+  </ion-content>
+</ion-modal-view>

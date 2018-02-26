@@ -1,0 +1,31 @@
+<ion-view class="fondo_login" title="Login">
+    <ion-content padding="true" class="has-header">
+        <div class="" style="line-height: 50px;text-align: center; margin-top: 10%;">
+
+            <img width="10%" src="images/alegra-icon.png"></img>
+        </div>
+        <div style="width: fit-content;margin: 0 auto;">
+          <form class="list">
+            <ion-list class="login-list">
+              <label
+              class="item item-input input-login"
+              style="border-bottom-style: solid !important;border-bottom-color: darkgray !important;border-bottom-width: 1px !important;"
+              name="user">
+                <span class="input-label"><p style="color: white; font-family: neeru;">Usuario</p></span>
+                <input type="text" placeholder=""  style="color: white;">
+              </label>
+              <label style="" class="item item-input input-login" name="password">
+                <span class="input-label"><p style="color: white; font-family: neeru;">Contraseña</p></span>
+                <input type="password" placeholder=""  style="color: white;">
+              </label>
+            </ion-list>
+            <div style="margin-top: 40px; text-align: center;">
+              <a class="button button-stable button-block button-login" ng-click="login()"><p>Ingresar</p></a>
+              <a style="color: transparent;" href="#"><p style="color: white; font-family: neeru;">¿Olvidó su contraseña?</p></a>
+            </div>
+
+          </form>
+
+        </div>
+    </ion-content>
+</ion-view>

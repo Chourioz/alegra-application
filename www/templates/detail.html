@@ -1,0 +1,47 @@
+<ion-view>
+  <ion-header-bar class="" style="text-align: center; background-color: #00b19d;">
+    <div class="" style="display: flex;">
+      <img width="10%" src="images/alegra-icon.png"></img>
+      <p style="color: white;margin-top: 2%;text-transform: uppercase;font-weight: bold;">Detail Contact</p>
+    </div>
+  </ion-header-bar>
+  <ion-content style="padding: 10px;">
+    <ion-list style="text-align: center;">
+      <ion-item>
+        <img src="images/editPhoto@3x.png" width="20%" alt="">
+      </ion-item>
+      <ion-item ng-show="contact.name">
+        <p>Name: {{contact.name}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.email">
+        <p>Email: {{contact.email}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.identification">
+        <p>Identification: {{contact.identification}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.phonePrimary">
+        <p>Phone Number: {{contact.phonePrimary}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.mobile">
+        <p>Mobile: {{contact.mobile}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.phoneSecondary">
+        <p>Phone Secondary: {{contact.phoneSecondary}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.address.city">
+        <p>City: {{contact.address.city}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.address.address">
+        <p>Address: {{contact.address.address}}</p>
+      </ion-item>
+      <ion-item ng-show="contact.observations">
+        <p>Description: {{contact.observations}}</p>
+      </ion-item>
+    </ion-list>
+    <div class="button-bar" padding>
+      <button name="button" style="color: white; background-color: #00b19d; width: 20% !important;" class="button icon-left ion-edit button-balance">Modify</button>
+      <button name="button" class="button icon-left ion-close-round button-outline button-assertive" style="width: 20% !important;margin-left: 5px;" ng-click="delete(contact.id)">Delete</button>
+    </div>
+  </ion-content>
+
+</ion-view>

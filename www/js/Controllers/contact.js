@@ -1,11 +1,16 @@
 angular.module('starter.contact',[])
 
-.controller('contactCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory) {
+.controller('contactCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $ionicModal) {
+
+  $scope.hasMore = true;
 
   $http.get('/api/v1/contacts')
   .then(function (response) {
     // console.log(response.data);
     $scope.contacts = response.data;
+    if($scope.contacts.lenght < 10){
+      $scope.hasMore = false;
+    };
   }, function (error) {
     // console.log(error.data);
   });
@@ -24,12 +29,14 @@ angular.module('starter.contact',[])
       if (response.data) {
         if (response.data > 0) {
           addContacts(response.data);
+          if(response.data.lenght < 10){
+            $scope.hasMore = false;
+          };
+          $scope.$broadcast('scroll.infiniteScrollComplete');
         }
       };
-      $scope.$broadcast('scroll.infiniteScrollComplete');
     });
   };
-
 
   $scope.$on('$stateChangeSuccess', function() {
     $scope.loadMore();

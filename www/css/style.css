@@ -218,6 +218,23 @@ button.margen_button{
   width: 95% !important;
 }
 
+.input-edit {
+  width: 100%;
+  text-align: center;
+}
+
+.title-input {
+  text-transform: uppercase;
+  color: #00b19d !important;
+  font-weight: bold;
+}
+
+.item-edit {
+  height: 85px !important;
+  text-align: -webkit-center;
+  padding: 0 !important;
+}
+
 
 /*slide animation */
 

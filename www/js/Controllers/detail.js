@@ -1,6 +1,6 @@
 angular.module('starter.detail',[])
 
-.controller('detailCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $stateParams) {
+.controller('detailCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $stateParams, $ionicModal) {
 
   $scope.contact = $state.params.contact;
 
@@ -21,6 +21,33 @@ angular.module('starter.detail',[])
       $ionicLoading.hide();
       console.log(error.data);
     })
-  }
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modals/modify.html',
+    {
+      scope: $scope,
+      backdropClickToClose: false,
+      animation: 'slide-in-right'
+    }).then(function (modal) {
+      $scope.modal = modal;
+  });
+
+  $scope.edit = function () {
+    $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 0
+    });
+    $http.put('/api/v1/contacts/'+$scope.contact.id, $scope.contact)
+    .then(function (response) {
+      $ionicLoading.hide();
+      $scope.modal.hide();
+    },function (error) {
+      $ionicLoading.hide();
+      $scope.modal.hide();
+    })
+  };
 
 });

@@ -1,22 +1,52 @@
 <ion-modal-view>
-  <ion-header-bar class="header-neeru">
-    <p style="margin: auto;">Resumen Transaccion</p>
+  <ion-header-bar style="text-align: center; background-color: #00b19d;">
+    <div class="" style="display: flex;">
+      <img width="10%" src="images/alegra-icon.png"></img>
+      <p style="color: white;margin-top: 2%;text-transform: uppercase;font-weight: bold;">Edit Contact</p>
+    </div>
   </ion-header-bar>
   <ion-content style="padding: 10px;">
-    <ion-list>
-      <ion-item class="transaction-confirm-item list-pos">
-        <p class="movement-item-title">Monto</p>
-        <p class="movement-item-value1">USD. {{confirmTransaction.monto/100 | number : 2}}</p>
+    <ion-list style="text-align: center;">
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Name:</span>
+        <input type="text" class="input-edit" ng-model="contact.name">
       </ion-item>
-      <ion-item class="transaction-confirm-item">
-        <p class="movement-item-title">numero tarjeta</p>
-        <p class="movement-item-value1">**** **** **** {{confirmTransaction.last_four_digits}}</p>
-      </ion-item class="transaction-confirm-item">
-      <ion-item class="transaction-confirm-item">
-        <p class="movement-item-title">Descripción</p>
-        <p class="movement-item-value1" style="text-transform: capitalize;">{{confirmTransaction.description}}</p>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Email:</span>
+        <input type="email" class="input-edit" ng-model="contact.email">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Identification:</span>
+        <input type="text" class="input-edit" ng-model="contact.identification">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Phone Number:</span>
+        <input type="text" class="input-edit" ng-model="contact.phonePrimary">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Mobile:</span>
+        <input type="text" class="input-edit" ng-model="contact.mobile">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Phone Secondary:</span>
+        <input type="text" class="input-edit" ng-model="contact.phoneSecondary">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">City:</span>
+        <input type="text" class="input-edit" ng-model="contact.address.city">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Address:</span>
+        <input type="text" class="input-edit" ng-model="contact.address.address">
+      </ion-item>
+      <ion-item class="item-edit">
+        <span class="input-label title-input">Description:</span>
+        <input type="text" class="input-edit" ng-model="contact.observations">
       </ion-item>
     </ion-list>
-    <a class="button  button-block button-green" ng-click="pagar()"><p>Continuar </p></a>
+    <div class="button-bar" padding>
+      <button name="button" style="color: white; background-color: #00b19d; width: 20% !important;" class="button icon-left ion-checkmark-round button-balance" ng-click="edit()">Accept</button>
+      <button name="button" class="button icon-left ion-close-round button-outline button-assertive" style="width: 20% !important;margin-left: 5px;" ng-click="modal.hide()">Cancel</button>
+    </div>
   </ion-content>
 </ion-modal-view>

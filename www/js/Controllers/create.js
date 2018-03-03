@@ -1,6 +1,6 @@
 angular.module('starter.create',[])
 
-.controller('createCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory) {
+.controller('createCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, notifyService) {
 
   $scope.data = {};
 
@@ -18,7 +18,8 @@ angular.module('starter.create',[])
       $scope.data = {};
       $state.go('contact');
     },function (error) {
-      $ionicLoading.hide()
+      $ionicLoading.hide();
+      notifyService(error.data.message)
     })
   };
 

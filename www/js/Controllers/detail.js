@@ -1,6 +1,6 @@
 angular.module('starter.detail',[])
 
-.controller('detailCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $stateParams, $ionicModal) {
+.controller('detailCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $stateParams, $ionicModal, notifyService) {
 
   $scope.contact = $state.params.contact;
 
@@ -19,7 +19,7 @@ angular.module('starter.detail',[])
       $state.go('contact');
     }, function (error) {
       $ionicLoading.hide();
-      console.log(error.data);
+      notifyService(error.data.message);
     })
   };
 
@@ -46,6 +46,7 @@ angular.module('starter.detail',[])
       $scope.modal.hide();
     },function (error) {
       $ionicLoading.hide();
+      notifyService(error.data.message);
       $scope.modal.hide();
     })
   };

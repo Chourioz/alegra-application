@@ -10,15 +10,6 @@ angular.module('starter.login',[])
   $scope.login = function(user) {
 
     $state.go('contact');
-    /*
-    item para mostrar un spinner para el loading
-    */
-    // $ionicLoading.show({
-    //   content: 'Loading',
-    //   animation: 'fade-in',
-    //   showBackdrop: true,
-    //   maxWidth: 200,
-    //   showDelay: 0
-    // });
+    
   }
 });

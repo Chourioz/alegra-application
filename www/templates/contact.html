@@ -9,21 +9,18 @@
     </div>
   </ion-header-bar>
   <ion-content style=" margin-top: 10px;">
-    <ion-list style="text-align: center;">
-      <ion-item ng-repeat="contact in contacts" style="display: flex;" ng-click="detail(contact)">
-        <div class="">
-          <img src="images/editPhoto@3x.png" width="30%" alt="">
-        </div>
-        <div class="">
-          <p>Name: {{contact.name}}</p>
-          <p>Email: {{contact.email}}</p>
-        </div>
-      </ion-item>
-    </ion-list>
-    <ion-infinite-scroll
-      ng-if="hasMore"
-      on-infinite="loadMore()"
-      distance="2%">
-    </ion-infinite-scroll>
+    <ion-scroll style="height=150px">
+      <ion-list style="text-align: center;">
+        <ion-item ng-repeat="contact in contacts" style="display: flex;" ng-click="detail(contact)">
+          <div class="">
+            <img src="images/editPhoto@3x.png" width="30%" alt="">
+          </div>
+          <div class="">
+            <p>Name: {{contact.name}}</p>
+            <p>Email: {{contact.email}}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
   </ion-content>
 </ion-view>

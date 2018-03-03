@@ -4,7 +4,7 @@
   "description": "Alegra application: A test application for Alegra",
   "dependencies": {
     "angular-resource": "^1.4.9",
-    "cordova-android": "^6.3.0",
+    "cordova-android": "^6.4.0",
     "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "git+https://github.com/apache/cordova-plugin-whitelist.git",

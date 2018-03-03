@@ -1,6 +1,6 @@
 angular.module('starter.contact',[])
 
-.controller('contactCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $ionicModal) {
+.controller('contactCtrl',function($scope, $cookies,$http, $state,$cordovaToast,$ionicLoading,$ionicHistory, $ionicModal, notifyService) {
 
   $scope.hasMore = false;
   $scope.contacts = [];
@@ -16,6 +16,13 @@ angular.module('starter.contact',[])
   };
 
   $scope.loadMore = function() {
+    $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 0
+    });
     $http.get('/api/v1/contacts?limit='+limit+"&start="+start)
     .then(function(response) {
       if (response.data.length == 5) {
@@ -24,17 +31,29 @@ angular.module('starter.contact',[])
       };
       addContacts(response.data)
     }, function (error) {
+      notifyService(error.data.message)
     });
   };
 
-  $scope.$on('$stateChangeSuccess', function() {
+  $scope.$on('$ionicView.beforeEnter', function() {
     $scope.loadMore();
   });
 
   function addContacts(contacts) {
-    contacts.forEach(function (elemento) {
-      $scope.contacts.push(elemento)
-    })
+    if ($scope.contacts.length != 0) {
+      contacts.forEach(function (elemento) {
+        $scope.contacts.forEach(function (contact) {
+          if (elemento.id != contact.id) {
+            $scope.contacts.push(elemento)
+          }
+        })
+      });
+    }else {
+      contacts.forEach(function (elemento) {
+        $scope.contacts.push(elemento)
+      });
+    }
+    $ionicLoading.hide();
   };
 
   $scope.moreData = function () {

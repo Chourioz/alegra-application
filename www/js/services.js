@@ -1,15 +1,11 @@
 angular.module('starter.services', [])
 
-.factory('notifyService',['$cordovaToast',
-function($cordovaToast) {
+.factory('notifyService',['$ionicPopup',
+function($ionicPopup) {
   return function(message) {
-    // Mostrar el Toast con el error
-    $cordovaToast
-    .show(message, 'short', 'center')
-    .then(function(success) {
-      // success
-    }, function (error) {
-      // error
+   $ionicPopup.alert({
+      title: 'Error',
+      template: message
     });
   }
 }]);

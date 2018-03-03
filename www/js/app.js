@@ -57,12 +57,9 @@ angular.module('starter',
 })
 
 .config(function($httpProvider,$stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-
-  $ionicConfigProvider.tabs.position("bottom");
-  $ionicConfigProvider.tabs.style("standard");
   // Configuracion de headers
   $httpProvider.interceptors.push('authInterceptor');
-
+  $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(true).text('');
   $stateProvider
 
   .state('login', {

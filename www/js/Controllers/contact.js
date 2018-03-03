@@ -40,9 +40,19 @@ angular.module('starter.contact',[])
   });
 
   function addContacts(contacts) {
-    contacts.forEach(function (elemento) {
-      $scope.contacts.push(elemento)
-    });
+    if ($scope.contacts.length != 0) {
+      contacts.forEach(function (elemento) {
+        $scope.contacts.forEach(function (contact) {
+          if (elemento.id != contact.id) {
+            $scope.contacts.push(elemento)
+          }
+        })
+      });
+    }else {
+      contacts.forEach(function (elemento) {
+        $scope.contacts.push(elemento)
+      });
+    }
     $ionicLoading.hide();
   };
 
